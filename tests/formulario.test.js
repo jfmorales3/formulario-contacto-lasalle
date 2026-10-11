@@ -99,3 +99,11 @@ test('Seguridad: /admin/mensajes exige el token de administración', async () =>
     adminServer.close();
   }
 });
+
+test('Privacidad: el aviso responde y está enlazado desde el formulario', async () => {
+  const aviso = await fetch(`${baseUrl}/privacidad`);
+  assert.equal(aviso.status, 200);
+  assert.match(await aviso.text(), /Ley 1581 de 2012/);
+  const formulario = await (await fetch(`${baseUrl}/contacto`)).text();
+  assert.match(formulario, /href="\/privacidad"/);
+});
