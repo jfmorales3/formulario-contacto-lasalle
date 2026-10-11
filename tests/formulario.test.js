@@ -66,3 +66,36 @@ test('Configuración: producción nunca muestra el panel de depuración', () => 
   assert.equal(prod.showDebugPanel, false);
   assert.notEqual(prod.dataFile, config.dataFile);
 });
+
+test('Salud: /salud informa el ambiente de pruebas y el número de registros', async () => {
+  const res = await fetch(`${baseUrl}/salud`);
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { estado: 'ok', ambiente: 'test', registros: 0 });
+});
+
+test('Seguridad: el texto enviado se escapa antes de mostrarse (XSS)', async () => {
+  const res = await enviar({ ...valido, nombre: '<script>alert(1)</script>' });
+  const html = await res.text();
+  assert.equal(res.status, 201);
+  assert.doesNotMatch(html, /<script>alert\(1\)<\/script>/);
+  assert.match(html, /&lt;script&gt;alert\(1\)&lt;\/script&gt;/);
+});
+
+test('Seguridad: /admin/mensajes exige el token de administración', async () => {
+  const adminApp = createApp(loadConfig({ ...process.env, ADMIN_TOKEN: 'token-solo-para-pruebas' }));
+  const adminServer = await new Promise((resolve) => {
+    const s = adminApp.listen(0, '127.0.0.1', () => resolve(s));
+  });
+  const url = `http://127.0.0.1:${adminServer.address().port}/admin/mensajes`;
+  try {
+    const sinToken = await fetch(url);
+    assert.equal(sinToken.status, 401);
+    const tokenErrado = await fetch(url, { headers: { Authorization: 'Bearer otro-valor' } });
+    assert.equal(tokenErrado.status, 401);
+    const conToken = await fetch(url, { headers: { Authorization: 'Bearer token-solo-para-pruebas' } });
+    assert.equal(conToken.status, 200);
+    assert.ok(Array.isArray(await conToken.json()));
+  } finally {
+    adminServer.close();
+  }
+});
