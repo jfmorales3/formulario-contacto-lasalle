@@ -85,6 +85,7 @@ function formPage(config, { values = {}, errors = {} } = {}) {
         ${field('correo', 'Correo electrónico', 'email')}
         ${field('asunto', 'Asunto')}
         ${field('mensaje', 'Mensaje', 'textarea')}
+        <p class="muted legal">Al enviar el formulario acepta el tratamiento de sus datos según el <a href="/privacidad">aviso de privacidad</a>.</p>
         <button class="button" type="submit">Enviar mensaje</button>
       </form>
     </section>
