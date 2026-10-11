@@ -66,3 +66,9 @@ test('Configuración: producción nunca muestra el panel de depuración', () => 
   assert.equal(prod.showDebugPanel, false);
   assert.notEqual(prod.dataFile, config.dataFile);
 });
+
+test('Salud: /salud informa el ambiente de pruebas y el número de registros', async () => {
+  const res = await fetch(`${baseUrl}/salud`);
+  assert.equal(res.status, 200);
+  assert.deepEqual(await res.json(), { estado: 'ok', ambiente: 'test', registros: 0 });
+});
