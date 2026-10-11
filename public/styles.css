@@ -1,0 +1,123 @@
+:root {
+  --azul: #0b3d91;
+  --azul-oscuro: #072a63;
+  --dorado: #f2a900;
+  --texto: #1d2433;
+  --muted: #5b6577;
+  --fondo: #f4f6fb;
+  --borde: #d5dbe7;
+  --error: #b42318;
+  --exito: #067647;
+  --ribbon: #6b7280;
+}
+body[data-env="development"] { --ribbon: #7c3aed; }
+body[data-env="test"] { --ribbon: #d97706; }
+body[data-env="production"] { --ribbon: #0b3d91; }
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+  line-height: 1.5;
+}
+a { color: var(--azul); }
+
+.env-ribbon {
+  background: var(--ribbon);
+  color: #fff;
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 4px 8px;
+  letter-spacing: 0.03em;
+}
+body[data-env="production"] .env-ribbon { display: none; }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 24px;
+  background: var(--azul);
+}
+.topbar a { color: #fff; text-decoration: none; }
+.topbar nav a { margin-left: 18px; opacity: 0.9; }
+.topbar nav a:hover { opacity: 1; text-decoration: underline; }
+.brand { font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+  background: var(--dorado);
+  color: var(--azul-oscuro);
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-weight: 800;
+}
+
+.container { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+
+.hero { padding: 24px 0 8px; }
+.eyebrow { color: var(--dorado); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; margin: 0; }
+.hero h1 { font-size: 2.2rem; margin: 6px 0 12px; color: var(--azul-oscuro); }
+.lead { font-size: 1.1rem; color: var(--muted); }
+
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 32px; }
+.features article { background: #fff; border: 1px solid var(--borde); border-radius: 10px; padding: 16px; }
+.features h3 { margin: 0 0 6px; color: var(--azul); font-size: 1rem; }
+.features p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.card { background: #fff; border: 1px solid var(--borde); border-radius: 12px; padding: 28px; box-shadow: 0 2px 10px rgba(11, 61, 145, 0.06); }
+.card h1 { margin-top: 0; color: var(--azul-oscuro); }
+.muted { color: var(--muted); }
+
+.field { margin-bottom: 16px; }
+.field label { display: block; font-weight: 600; margin-bottom: 6px; }
+.field label span { color: var(--error); }
+.field input, .field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font: inherit;
+}
+.field input:focus, .field textarea:focus { outline: 2px solid var(--dorado); border-color: var(--azul); }
+.field.has-error input, .field.has-error textarea { border-color: var(--error); background: #fff6f5; }
+.field-error { color: var(--error); font-size: 0.88rem; margin: 4px 0 0; min-height: 1em; }
+
+.button {
+  display: inline-block;
+  background: var(--azul);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 22px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover { background: var(--azul-oscuro); }
+
+.alert { border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; }
+.alert-error { background: #fef3f2; color: var(--error); border: 1px solid #fecdca; }
+.alert-success { background: #ecfdf3; color: var(--exito); border: 1px solid #abefc6; font-weight: 600; }
+.radicado { font-size: 2rem; font-weight: 800; letter-spacing: 0.06em; color: var(--azul); margin: 0 0 8px; }
+
+.debug-panel {
+  max-width: 760px;
+  margin: 0 auto 32px;
+  padding: 14px 18px;
+  border: 2px dashed var(--ribbon);
+  border-radius: 10px;
+  background: #fff;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+}
+.debug-panel h2 { margin: 0 0 8px; font-size: 0.95rem; color: var(--ribbon); }
+.debug-panel dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: 0; }
+.debug-panel dt { font-weight: 700; }
+.debug-panel dd { margin: 0; word-break: break-all; }
+.stack { white-space: pre-wrap; font-size: 0.8rem; background: #f8f8f8; padding: 10px; }
+
+.footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 16px; }

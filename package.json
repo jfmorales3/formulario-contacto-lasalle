@@ -1,0 +1,23 @@
+{
+  "name": "formulario-contacto-lasalle",
+  "version": "1.0.0",
+  "description": "Formulario de contacto La Salle ejecutable en ambientes de desarrollo, pruebas y producción",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "private": true,
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "dev": "node --env-file=config/development.env --env-file-if-exists=.env --watch src/server.js",
+    "start:test": "node --env-file=config/test.env --env-file-if-exists=.env src/server.js",
+    "start": "node --env-file=config/production.env src/server.js",
+    "seed": "node --env-file=config/development.env scripts/seed-dev.js",
+    "test": "node --env-file=config/test.env --test \"tests/**/*.test.js\""
+  },
+  "author": "Juan Felipe Jiménez Morales",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "5.1.0"
+  }
+}

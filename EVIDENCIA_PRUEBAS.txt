@@ -1,0 +1,16 @@
+
+> formulario-contacto-lasalle@1.0.0 test
+> node --env-file=config/test.env --test "tests/**/*.test.js"
+
+✔ CP-01 envío correcto del formulario: guarda el registro y muestra confirmación (53.587292ms)
+✔ CP-02 campo obligatorio vacío: rechaza el envío y no guarda nada (5.138792ms)
+✔ CP-03 correo electrónico inválido: rechaza el envío y no guarda nada (3.019334ms)
+✔ Configuración: producción nunca muestra el panel de depuración (0.599333ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 289.354

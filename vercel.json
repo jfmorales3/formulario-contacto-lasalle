@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.js": { "includeFiles": "config/production.env" }
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
+}
