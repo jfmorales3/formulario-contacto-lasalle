@@ -72,3 +72,11 @@ test('Salud: /salud informa el ambiente de pruebas y el número de registros', a
   assert.equal(res.status, 200);
   assert.deepEqual(await res.json(), { estado: 'ok', ambiente: 'test', registros: 0 });
 });
+
+test('Seguridad: el texto enviado se escapa antes de mostrarse (XSS)', async () => {
+  const res = await enviar({ ...valido, nombre: '<script>alert(1)</script>' });
+  const html = await res.text();
+  assert.equal(res.status, 201);
+  assert.doesNotMatch(html, /<script>alert\(1\)<\/script>/);
+  assert.match(html, /&lt;script&gt;alert\(1\)&lt;\/script&gt;/);
+});
