@@ -22,7 +22,6 @@ function createApp(config) {
     next();
   });
 
-  // Registro de cada petición (visible con LOG_LEVEL=debug, es decir, en desarrollo).
   app.use((req, res, next) => {
     const start = Date.now();
     res.on('finish', () => {
@@ -54,7 +53,6 @@ function createApp(config) {
     res.json({ estado: 'ok', ambiente: config.env, registros: storage.count() });
   });
 
-  // Consulta protegida por token (el token vive en variables de entorno, nunca en el código).
   app.get('/admin/mensajes', (req, res) => {
     if (!config.adminToken) return res.status(404).send(views.notFoundPage(config));
     const provided = (req.get('authorization') || '').replace(/^Bearer\s+/i, '');

@@ -16,7 +16,6 @@ function loadConfig(env = process.env) {
     label: env.ENV_LABEL || name,
     port: Number(env.PORT) || 3000,
     logLevel: env.LOG_LEVEL || (name === 'production' ? 'error' : 'debug'),
-    // En producción el panel de depuración nunca se muestra, aunque alguien lo active por error.
     showDebugPanel: name !== 'production' && env.SHOW_DEBUG_PANEL === 'true',
     dataFile: path.isAbsolute(dataFile) ? dataFile : path.join(ROOT, dataFile),
     recordPrefix: env.RECORD_PREFIX || name.slice(0, 3).toUpperCase(),

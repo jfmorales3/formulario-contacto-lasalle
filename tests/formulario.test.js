@@ -1,5 +1,3 @@
-// Casos de prueba exigidos por la actividad. Se ejecutan con: npm test
-// Usan config/test.env, por lo que escriben en data/test/contactos.json (independiente de desarrollo).
 const { test, before, after, beforeEach } = require('node:test');
 const assert = require('node:assert/strict');
 const { loadConfig } = require('../src/config');

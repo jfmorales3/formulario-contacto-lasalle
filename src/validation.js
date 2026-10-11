@@ -1,4 +1,3 @@
-// Reglas compartidas por el servidor. El navegador replica las mismas en public/form.js.
 const EMAIL_PATTERN = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 const FIELDS = {

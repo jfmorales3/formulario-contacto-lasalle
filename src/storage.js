@@ -1,7 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-// Almacenamiento en archivo JSON. Cada ambiente apunta a un archivo distinto (DATA_FILE).
 function createStorage(filePath, prefix) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
 
@@ -12,7 +11,6 @@ function createStorage(filePath, prefix) {
   };
 
   const writeAll = (records) => {
-    // Escritura atómica: se escribe a un temporal y luego se renombra.
     const tmp = `${filePath}.tmp`;
     fs.writeFileSync(tmp, JSON.stringify(records, null, 2));
     fs.renameSync(tmp, filePath);

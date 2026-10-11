@@ -1,4 +1,3 @@
-// Validación en el navegador: mejora la experiencia, pero el servidor vuelve a validar todo.
 (function () {
   const form = document.getElementById('contact-form');
   if (!form) return;

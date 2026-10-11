@@ -1,4 +1,3 @@
-// Carga datos de ejemplo identificables SOLO en el ambiente de desarrollo.
 const { loadConfig } = require('../src/config');
 const { createStorage } = require('../src/storage');
 
