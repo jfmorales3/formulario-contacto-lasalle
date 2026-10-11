@@ -1,5 +1,7 @@
 # Formulario de contacto La Salle
 
+[![Pruebas](https://github.com/jfmorales3/formulario-contacto-lasalle/actions/workflows/pruebas.yml/badge.svg)](https://github.com/jfmorales3/formulario-contacto-lasalle/actions/workflows/pruebas.yml)
+
 Aplicación web en **Node.js + Express** que demuestra cómo una misma base de código se ejecuta de forma
 controlada en tres ambientes: **desarrollo**, **pruebas** y **producción/demostración**.
 
@@ -76,6 +78,26 @@ cada `git push` a `main` genera un nuevo despliegue de producción.
   Es aceptable para un ambiente de demostración.
 
 Despliegue manual con la CLI: `npx vercel --prod`.
+
+## Flujo de trabajo con Git
+
+1. Cada tarea se registra como un **issue** en GitHub.
+2. Se crea una rama desde `main` con un prefijo según el tipo de cambio:
+   `feature/` (funcionalidad), `test/` (pruebas), `ci/` (automatización), `docs/` (documentación).
+3. Los commits describen el cambio en español y citan el issue, por ejemplo `Agregar ruta /privacidad (#3)`.
+4. Se abre un **pull request** hacia `main`. GitHub Actions ejecuta `npm test` y el PR solo se integra con las pruebas en verde.
+5. Si hay conflicto, se trae `main` a la rama (`git merge main`), se resuelve, se ejecuta `npm test` y se sube la resolución.
+6. Al integrar en `main`, Vercel publica automáticamente la nueva versión de producción.
+
+```bash
+git switch main && git pull
+git switch -c feature/mi-cambio
+# ...cambios...
+npm test
+git commit -m "Descripción del cambio (#N)"
+git push -u origin feature/mi-cambio
+gh pr create --fill
+```
 
 ## Rutas
 
