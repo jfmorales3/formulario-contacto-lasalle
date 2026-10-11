@@ -37,6 +37,8 @@ function createApp(config) {
 
   app.get('/contacto', (req, res) => res.send(views.formPage(config)));
 
+  app.get('/privacidad', (req, res) => res.send(views.privacyPage(config)));
+
   app.post('/contacto', (req, res) => {
     const { valid, errors, data } = validateContact(req.body);
     if (!valid) {

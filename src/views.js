@@ -24,7 +24,7 @@ function layout(config, title, content) {
   </header>
   <main class="container">${content}</main>
   ${config.showDebugPanel ? debugPanel(config) : ''}
-  <footer class="footer">Formulario de contacto La Salle · Ingeniería de Software · Actividad 4</footer>
+  <footer class="footer">Formulario de contacto La Salle · <a href="/privacidad">Aviso de privacidad</a></footer>
 </body>
 </html>`;
 }
@@ -102,6 +102,21 @@ function thanksPage(config, record) {
     </section>`);
 }
 
+function privacyPage(config) {
+  return layout(config, 'Aviso de privacidad', `
+    <section class="card">
+      <h1>Aviso de privacidad</h1>
+      <p>En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2013, la Universidad de La Salle informa cómo trata los datos que usted envía en el formulario de contacto.</p>
+      <h2>Datos que recogemos</h2>
+      <p>Nombre, correo electrónico, asunto y mensaje.</p>
+      <h2>Finalidad</h2>
+      <p>Responder su solicitud y hacerle seguimiento con el número de radicado. Los datos no se venden ni se comparten con terceros.</p>
+      <h2>Sus derechos</h2>
+      <p>Puede conocer, actualizar, rectificar o pedir la eliminación de sus datos escribiendo desde el mismo correo con el que envió el mensaje e indicando su número de radicado.</p>
+      <p><a class="button" href="/contacto">Volver al formulario</a></p>
+    </section>`);
+}
+
 function notFoundPage(config) {
   return layout(config, 'No encontrado', `
     <section class="card"><h1>Página no encontrada</h1><p><a href="/">Volver al inicio</a></p></section>`);
@@ -113,4 +128,4 @@ function errorPage(config, err) {
     <section class="card"><h1>Ocurrió un error inesperado</h1><p>Intente de nuevo más tarde.</p>${detail}</section>`);
 }
 
-module.exports = { homePage, formPage, thanksPage, notFoundPage, errorPage };
+module.exports = { homePage, formPage, thanksPage, privacyPage, notFoundPage, errorPage };
