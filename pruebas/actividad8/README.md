@@ -118,3 +118,9 @@ y limpian el archivo antes de cada caso. Los seis casos están automatizados.
 | CI-02 | Integración | Envío inválido sin persistir | ✅ | ✅ |
 | CF-01 | Funcional | Envío desde el navegador | ✅ | ✅ |
 | CF-02 | Funcional | Validación en el navegador | ❌ | ✅ |
+
+## Integración continua
+
+El workflow `.github/workflows/pruebas.yml` ejecuta `npm test` y las pruebas E2E en cada push a `test/**` y en cada
+pull request a `main`. Ejecución de referencia: https://github.com/jfmorales3/formulario-contacto-lasalle/actions/runs/40152208616
+(captura en `evidencias/CI_github_actions.png`).
