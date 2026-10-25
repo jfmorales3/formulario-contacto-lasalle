@@ -13,11 +13,18 @@
     "start:test": "node --env-file=config/test.env --env-file-if-exists=.env src/server.js",
     "start": "node --env-file=config/production.env src/server.js",
     "seed": "node --env-file=config/development.env scripts/seed-dev.js",
-    "test": "node --env-file=config/test.env --test \"tests/**/*.test.js\""
+    "test": "node --env-file=config/test.env --test --test-concurrency=1 \"tests/**/*.test.js\"",
+    "test:unit": "node --env-file=config/test.env --test --test-concurrency=1 \"tests/unitarias/*.test.js\"",
+    "test:integracion": "node --env-file=config/test.env --test --test-concurrency=1 \"tests/integracion/*.test.js\"",
+    "test:e2e": "node --env-file=config/test.env --test --test-concurrency=1 \"tests/funcionales/*.e2e.js\"",
+    "test:actividad8": "node --env-file=config/test.env --test --test-concurrency=1 --test-reporter=spec \"tests/unitarias/*.test.js\" \"tests/integracion/*.test.js\" \"tests/funcionales/*.e2e.js\""
   },
   "author": "Juan Felipe Jiménez Morales",
   "license": "UNLICENSED",
   "dependencies": {
     "express": "5.1.0"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
   }
 }

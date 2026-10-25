@@ -1,0 +1,121 @@
+# Ejecución inicial (antes de corregir DEF-01) — 2026-10-24 20:49 -05
+# Comando: npm run test:actividad8   |   Node v25.6.1   |   commit base 54d18a4
+
+[2026-10-25T01:49:25.889Z] [test] INFO  Contacto almacenado con radicado QA-0001
+✔ CF-01 el usuario diligencia y envía el formulario desde el navegador (447.9535ms)
+[2026-10-25T01:49:26.192Z] [test] INFO  Contacto almacenado con radicado QA-0001
+✖ CF-02 la validación del navegador bloquea envíos vacíos o con correo mal formado (787.088459ms)
+[2026-10-25T01:49:26.953Z] [test] INFO  Contacto almacenado con radicado QA-0001
+[2026-10-25T01:49:26.960Z] [test] INFO  Contacto almacenado con radicado QA-0002
+✔ CI-01 envío válido: ruta + validación + almacenamiento generan radicados consecutivos (51.377584ms)
+[2026-10-25T01:49:26.967Z] [test] INFO  Formulario rechazado por validación {"campos":["mensaje","correo"]}
+✔ CI-02 envío inválido: responde 422, conserva lo escrito y no toca el almacenamiento (3.655ms)
+✔ CU-01 campos obligatorios y longitudes máximas (valores límite) (1.672042ms)
+▶ CU-02 formato del correo electrónico
+  ✔ acepta ana.rojas@lasalle.edu.co (0.083083ms)
+  ✔ acepta qa_1+form@unisalle.edu.co (0.053375ms)
+  ✔ acepta j-perez@mail.co (0.054375ms)
+  ✔ rechaza estudiante@lasalle (0.112583ms)
+  ✔ rechaza sin-arroba.lasalle.edu.co (0.048ms)
+  ✔ rechaza ana@@lasalle.edu.co (0.057292ms)
+  ✔ rechaza ana rojas@lasalle.edu.co (0.046916ms)
+  ✖ rechaza ana@lasalle..edu.co (0.686625ms)
+  ✖ rechaza .ana@lasalle.edu.co (0.114625ms)
+  ✖ rechaza ana.@lasalle.edu.co (0.072375ms)
+  ✖ rechaza ana..rojas@lasalle.edu.co (0.057333ms)
+  ✖ rechaza ana@-lasalle.edu.co (0.065458ms)
+✖ CU-02 formato del correo electrónico (2.087ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 11
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1913.716958
+
+✖ failing tests:
+
+test at tests/funcionales/formulario.e2e.js:62:1
+✖ CF-02 la validación del navegador bloquea envíos vacíos o con correo mal formado (787.088459ms)
+  AssertionError [ERR_ASSERTION]: ningún envío inválido debe llegar al servidor
+  
+  1 !== 0
+  
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unitarias/validacion.test.js:49:13
+✖ rechaza ana@lasalle..edu.co (0.686625ms)
+  AssertionError [ERR_ASSERTION]: "ana@lasalle..edu.co" no debería aceptarse
+  
+  true !== false
+  
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unitarias/validacion.test.js:49:13
+✖ rechaza .ana@lasalle.edu.co (0.114625ms)
+  AssertionError [ERR_ASSERTION]: ".ana@lasalle.edu.co" no debería aceptarse
+  
+  true !== false
+  
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unitarias/validacion.test.js:49:13
+✖ rechaza ana.@lasalle.edu.co (0.072375ms)
+  AssertionError [ERR_ASSERTION]: "ana.@lasalle.edu.co" no debería aceptarse
+  
+  true !== false
+  
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unitarias/validacion.test.js:49:13
+✖ rechaza ana..rojas@lasalle.edu.co (0.057333ms)
+  AssertionError [ERR_ASSERTION]: "ana..rojas@lasalle.edu.co" no debería aceptarse
+  
+  true !== false
+  
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/unitarias/validacion.test.js:49:13
+✖ rechaza ana@-lasalle.edu.co (0.065458ms)
+  AssertionError [ERR_ASSERTION]: "ana@-lasalle.edu.co" no debería aceptarse
+  
+  true !== false
+  
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
