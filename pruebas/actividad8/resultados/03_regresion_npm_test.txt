@@ -1,0 +1,33 @@
+# Regresión: suite completa npm test (pruebas previas + nuevas)
+✔ CP-01 envío correcto del formulario: guarda el registro y muestra confirmación (53.378542ms)
+✔ CP-02 campo obligatorio vacío: rechaza el envío y no guarda nada (3.8335ms)
+✔ CP-03 correo electrónico inválido: rechaza el envío y no guarda nada (5.337209ms)
+✔ Configuración: producción nunca muestra el panel de depuración (0.629542ms)
+✔ Salud: /salud informa el ambiente de pruebas y el número de registros (4.384792ms)
+✔ Seguridad: el texto enviado se escapa antes de mostrarse (XSS) (3.288042ms)
+✔ Seguridad: /admin/mensajes exige el token de administración (8.794959ms)
+✔ Privacidad: el aviso responde y está enlazado desde el formulario (5.521ms)
+✔ CI-01 envío válido: ruta + validación + almacenamiento generan radicados consecutivos (55.892667ms)
+✔ CI-02 envío inválido: responde 422, conserva lo escrito y no toca el almacenamiento (4.591125ms)
+✔ CU-01 campos obligatorios y longitudes máximas (valores límite) (2.024042ms)
+  ✔ acepta ana.rojas@lasalle.edu.co (0.085958ms)
+  ✔ acepta qa_1+form@unisalle.edu.co (0.054708ms)
+  ✔ acepta j-perez@mail.co (0.053708ms)
+  ✔ rechaza estudiante@lasalle (0.269667ms)
+  ✔ rechaza sin-arroba.lasalle.edu.co (0.070333ms)
+  ✔ rechaza ana@@lasalle.edu.co (0.052791ms)
+  ✔ rechaza ana rojas@lasalle.edu.co (0.056166ms)
+  ✔ rechaza ana@lasalle..edu.co (0.063208ms)
+  ✔ rechaza .ana@lasalle.edu.co (0.078459ms)
+  ✔ rechaza ana.@lasalle.edu.co (0.057625ms)
+  ✔ rechaza ana..rojas@lasalle.edu.co (0.037ms)
+  ✔ rechaza ana@-lasalle.edu.co (0.037833ms)
+✔ CU-02 formato del correo electrónico (1.690459ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 574.401875

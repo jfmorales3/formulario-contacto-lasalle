@@ -1,0 +1,34 @@
+# Nueva ejecución tras corregir DEF-01 — 2026-10-24 20:49 -05
+# Comando: npm run test:actividad8   |   Node v25.6.1
+
+[2026-10-25T01:49:43.214Z] [test] INFO  Contacto almacenado con radicado QA-0001
+✔ CF-01 el usuario diligencia y envía el formulario desde el navegador (636.400292ms)
+✔ CF-02 la validación del navegador bloquea envíos vacíos o con correo mal formado (627.265417ms)
+[2026-10-25T01:49:44.110Z] [test] INFO  Contacto almacenado con radicado QA-0001
+[2026-10-25T01:49:44.116Z] [test] INFO  Contacto almacenado con radicado QA-0002
+✔ CI-01 envío válido: ruta + validación + almacenamiento generan radicados consecutivos (52.2125ms)
+[2026-10-25T01:49:44.123Z] [test] INFO  Formulario rechazado por validación {"campos":["mensaje","correo"]}
+✔ CI-02 envío inválido: responde 422, conserva lo escrito y no toca el almacenamiento (3.630125ms)
+✔ CU-01 campos obligatorios y longitudes máximas (valores límite) (2.259583ms)
+▶ CU-02 formato del correo electrónico
+  ✔ acepta ana.rojas@lasalle.edu.co (0.094084ms)
+  ✔ acepta qa_1+form@unisalle.edu.co (0.058875ms)
+  ✔ acepta j-perez@mail.co (0.065666ms)
+  ✔ rechaza estudiante@lasalle (0.127542ms)
+  ✔ rechaza sin-arroba.lasalle.edu.co (0.059959ms)
+  ✔ rechaza ana@@lasalle.edu.co (0.048583ms)
+  ✔ rechaza ana rojas@lasalle.edu.co (0.052209ms)
+  ✔ rechaza ana@lasalle..edu.co (0.071333ms)
+  ✔ rechaza .ana@lasalle.edu.co (0.08075ms)
+  ✔ rechaza ana.@lasalle.edu.co (0.068083ms)
+  ✔ rechaza ana..rojas@lasalle.edu.co (0.04125ms)
+  ✔ rechaza ana@-lasalle.edu.co (0.041083ms)
+✔ CU-02 formato del correo electrónico (1.564125ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1952.833333

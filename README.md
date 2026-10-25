@@ -47,7 +47,8 @@ terminal aparece un log `DEBUG` por cada petición.
 ### 2. Pruebas
 
 ```bash
-npm test          # ejecuta los casos CP-01, CP-02 y CP-03 automáticamente
+npm test          # pruebas previas (CP-01…CP-03) + unitarias + integración
+npm run test:e2e  # pruebas funcionales en Chromium (requiere npx playwright install chromium)
 npm run start:test  # (opcional) levanta el servidor de pruebas en http://127.0.0.1:3001 para probar a mano
 ```
 
@@ -59,6 +60,9 @@ datos de desarrollo ni de producción. El archivo se limpia antes de cada caso.
 | CP-01 | Envío correcto                      | HTTP 201, página de confirmación con radicado QA-0001 |
 | CP-02 | Campo obligatorio vacío (asunto)    | HTTP 422, mensaje "El campo "Asunto" es obligatorio", nada guardado |
 | CP-03 | Correo inválido (`estudiante@lasalle`) | HTTP 422, mensaje de formato inválido, nada guardado |
+
+El plan de pruebas de la Actividad 8 (unitarias, integración y funcionales), sus resultados y evidencias
+están en [`pruebas/actividad8/`](pruebas/actividad8/README.md).
 
 ### 3. Producción / demostración
 
