@@ -108,6 +108,11 @@ y limpian el archivo antes de cada caso. Los seis casos están automatizados.
 - **Nueva ejecución:** 18/18 casos aprobados (`resultados/02_ejecucion_tras_correccion.txt`) y regresión `npm test` 24/24 (`resultados/03_regresion_npm_test.txt`).
 - **Acción pendiente:** servir el patrón desde un único módulo compartido para que servidor y navegador no vuelvan a divergir.
 
+### Vulnerabilidad en dependencias
+- `npm audit` reportó una vulnerabilidad alta en `body-parser` 2.3.0, dependencia de Express (GHSA-27r3-jxmh-p828).
+- **Corrección:** `npm audit fix` la actualizó a 2.4.0; solo cambia `package-lock.json`.
+- **Nueva ejecución:** `npm audit` sin vulnerabilidades, `npm test` 24/24 y `npm run test:e2e` 2/2 (`resultados/04_npm_audit.txt`).
+
 ## Resumen
 
 | ID | Tipo | Nombre | 1.ª ejecución | Tras corrección |
@@ -122,5 +127,5 @@ y limpian el archivo antes de cada caso. Los seis casos están automatizados.
 ## Integración continua
 
 El workflow `.github/workflows/pruebas.yml` ejecuta `npm test` y las pruebas E2E en cada push a `test/**` y en cada
-pull request a `main`. Ejecución de referencia: https://github.com/jfmorales3/formulario-contacto-lasalle/actions/runs/40152208616
+pull request a `main`. Ejecuciones de esta rama: https://github.com/jfmorales3/formulario-contacto-lasalle/actions?query=branch%3Atest%2Factividad-8
 (captura en `evidencias/CI_github_actions.png`).

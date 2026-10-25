@@ -1,0 +1,8 @@
+# npm audit — 2026-10-24 21:18 -05
+# Antes: body-parser 2.3.0, 1 vulnerabilidad alta (GHSA-27r3-jxmh-p828). Corrección: npm audit fix
+
+formulario-contacto-lasalle@1.0.0
+`-- express@5.1.0
+  `-- body-parser@2.4.0
+
+found 0 vulnerabilities
